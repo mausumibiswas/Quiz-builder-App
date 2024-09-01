@@ -1,111 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizzie Sign Up</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-        }
+  <title>Quizzie</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    .container {
+      display: flex;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    .sidebar {
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
 
-        .button {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
 
-        .button:hover {
-            opacity: 0.8;
-        }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+    .box {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #333;
-        }
+    .box h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+    .box p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
 
-        .error {
-            color: red;
-            font-size: 12px;
-        }
-    </style>
+    .trending-quizzes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+    }
+
+    .quiz-card {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>QUIZZIE</h1>
-        <button class="button">Sign Up</button>
-        <button class="button">Log In</button>
-
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your Name" required>
-                <span class="error">Invalid name</span>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <span class="error">Invalid Email</span>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password" required>
-                <span class="error">Weak password</span>
-            </div>
-
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
-                <span class="error">Passwords don't match</span>
-            </div>
-
-            <button type="submit" class="button">Sign-Up</button>
-        </form>
+  <div class="container">
+    <div class="sidebar">
+      <h1>QUIZZIE</h1>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Create Quiz</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
     </div>
+    <div class="content">
+      <div class="header">
+        <h1>Total Impressions below 1000</h1>
+      </div>
+      <div class="box">
+        <h2>12 Quiz Created</h2>
+      </div>
+      <div class="box">
+        <h2>110 questions Created</h2>
+      </div>
+      <div class="box">
+        <h2>989 Total Impressions</h2>
+      </div>
+      <h2>Trending Quizzes</h2>
+      <div class="trending-quizzes">
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+        <div class="quiz-card">
+          <h3>Quiz 1</h3>
+          <p>667</p>
+          <p>Created on: 04 Sep, 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
