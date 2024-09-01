@@ -1,18 +1,20 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 
-app.post('/delete-quiz', (req, res) => {
-    const quizId = req.body.quizId;
-    // Perform deletion logic (e.g., remove from database)
-    console.log(`Quiz with ID ${quizId} deleted`);
+app.post('/api/create-poll-quiz', (req, res) => {
+    const { pollQuestion, optionType, options } = req.body;
 
-    // Respond with success or failure
-    res.status(200).send({ message: 'Quiz deleted successfully' });
+    // Here you would typically save this data to a database
+    console.log(`Poll Question: ${pollQuestion}`);
+    console.log(`Option Type: ${optionType}`);
+    console.log(`Options: ${options}`);
+
+    res.json({ message: 'Poll quiz created successfully!' });
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });

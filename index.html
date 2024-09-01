@@ -1,154 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Quizzie</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      display: flex;
-    }
-
-    .sidebar {
-      width: 200px;
-      background-color: #f0f0f0;
-      padding: 20px;
-    }
-
-    .content {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .box {
-      background-color: #fff;
-      border-radius: 5px;
-      padding: 20px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .box h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .box p {
-      font-size: 16px;
-      margin-bottom: 0;
-    }
-
-    .trending-quizzes {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 20px;
-    }
-
-    .quiz-card {
-      background-color: #fff;
-      border-radius: 5px;
-      padding: 10px;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Poll Quiz</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <h1>QUIZZIE</h1>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Analytics</a></li>
-        <li><a href="#">Create Quiz</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
+    <div class="modal">
+        <form id="quizForm">
+            <div class="question-header">
+                <button type="button" id="prevQuestion">1</button>
+                <button type="button" id="currentQuestion">2 <span class="remove-question">✖</span></button>
+                <button type="button" id="addQuestion">+</button>
+            </div>
+
+            <label for="pollQuestion">Poll Question</label>
+            <input type="text" id="pollQuestion" name="pollQuestion" required>
+
+            <label>Option Type</label>
+            <div class="option-type">
+                <input type="radio" id="textOption" name="optionType" value="Text" required checked>
+                <label for="textOption">Text</label>
+
+                <input type="radio" id="imageURLOption" name="optionType" value="ImageURL">
+                <label for="imageURLOption">Image URL</label>
+
+                <input type="radio" id="textImageOption" name="optionType" value="TextImageURL">
+                <label for="textImageOption">Text & Image URL</label>
+            </div>
+
+            <div id="optionsContainer">
+                <div class="option-group">
+                    <input type="text" name="option1" placeholder="Text">
+                    <button type="button" class="delete-option">🗑️</button>
+                </div>
+                <div class="option-group">
+                    <input type="text" name="option2" placeholder="Text">
+                    <button type="button" class="delete-option">🗑️</button>
+                </div>
+                <div class="option-group">
+                    <input type="text" name="option3" placeholder="Text">
+                    <button type="button" class="delete-option">🗑️</button>
+                </div>
+                <div class="option-group">
+                    <input type="text" name="option4" placeholder="Text">
+                    <button type="button" class="delete-option">🗑️</button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="cancelButton">Cancel</button>
+                <button type="submit">Create Quiz</button>
+            </div>
+        </form>
     </div>
-    <div class="content">
-      <div class="header">
-        <h1>Total Impressions below 1000</h1>
-      </div>
-      <div class="box">
-        <h2>12 Quiz Created</h2>
-      </div>
-      <div class="box">
-        <h2>110 questions Created</h2>
-      </div>
-      <div class="box">
-        <h2>989 Total Impressions</h2>
-      </div>
-      <h2>Trending Quizzes</h2>
-      <div class="trending-quizzes">
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-        <div class="quiz-card">
-          <h3>Quiz 1</h3>
-          <p>667</p>
-          <p>Created on: 04 Sep, 2023</p>
-        </div>
-      </div>
-    </div>
-  </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
