@@ -1,57 +1,49 @@
-document.getElementById('cancelButton').addEventListener('click', function() {
-    document.getElementById('quizForm').reset();
-});
+let selectedOption = null;
+let timer = 10;
+let interval;
 
-document.getElementById('addOption').addEventListener('click', function() {
-    const optionsContainer = document.getElementById('optionsContainer');
-    const optionCount = optionsContainer.querySelectorAll('.option-group').length + 1;
-    
-    if (optionCount <= 5) {
-        const newOption = document.createElement('div');
-        newOption.className = 'option-group';
-        newOption.innerHTML = `
-            <input type="text" name="option${optionCount}" placeholder="Text">
-            <button type="button" class="delete-option">🗑️</button>
-        `;
-        optionsContainer.appendChild(newOption);
+function selectOption(element) {
+    if (selectedOption) {
+        selectedOption.classList.remove('selected');
+    }
+    element.classList.add('selected');
+    selectedOption = element;
+}
 
-        newOption.querySelector('.delete-option').addEventListener('click', function() {
-            newOption.remove();
+function submitAnswer() {
+    if (selectedOption) {
+        const answer = selectedOption.textContent;
+        // Send the answer to the server
+        fetch('/submit-answer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ answer: answer })
+        }).then(response => {
+            if (response.ok) {
+                alert('Answer submitted successfully');
+            } else {
+                alert('Failed to submit answer');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
         });
     } else {
-        alert('Maximum 5 options allowed.');
+        alert('Please select an option');
     }
-});
+}
 
-document.getElementById('quizForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+function startTimer() {
+    interval = setInterval(() => {
+        if (timer > 0) {
+            timer--;
+            document.getElementById('timer').textContent = `00:${timer < 10 ? '0' + timer : timer}s`;
+        } else {
+            clearInterval(interval);
+            submitAnswer();
+        }
+    }, 1000);
+}
 
-    const pollQuestion = document.getElementById('pollQuestion').value;
-    const optionType = document.querySelector('input[name="optionType"]:checked').value;
-    const timer = document.querySelector('input[name="timer"]:checked').value;
-
-    const options = Array.from(document.querySelectorAll('#optionsContainer .option-group input[type="text"]'))
-        .map(input => input.value);
-
-    const quizData = {
-        pollQuestion,
-        optionType,
-        options,
-        timer
-    };
-
-    fetch('/api/create-poll-quiz', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(quizData),
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Poll quiz created successfully!');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
+window.onload = startTimer;

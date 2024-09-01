@@ -1,45 +1,18 @@
 const express = require('express');
 const app = express();
-const path = require('path');
+const port = 3000;
 
-// Serve static files
-app.use(express.static('public'));
+app.use(express.json());
 
-// Mock Data
-const quizData = {
-    createdOn: '04 Sep, 2023',
-    impressions: 667,
-    questions: [
-        {
-            id: 1,
-            text: 'Question place holder for analysis?',
-            options: [60, 23, 45, 11]
-        },
-        {
-            id: 2,
-            text: 'Question place holder for analysis?',
-            options: [60, 23, 45, 11]
-        },
-        {
-            id: 3,
-            text: 'Question place holder for analysis?',
-            options: [60, 23, 45, 11]
-        }
-    ]
-};
-
-// Endpoint to get quiz data
-app.get('/api/quiz-data', (req, res) => {
-    res.json(quizData);
+app.post('/submit-answer', (req, res) => {
+    const answer = req.body.answer;
+    console.log(`Submitted answer: ${answer}`);
+    
+    // Perform answer validation and save logic here
+    
+    res.status(200).send({ message: 'Answer submitted successfully' });
 });
 
-// Serve the HTML page
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });
