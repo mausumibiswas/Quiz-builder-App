@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login-Signup</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>QUIZZIE</h1>
+
+    <button class="button">Log In</button>
+    <br>
+    <br>
+
+    <p>Sign Up</p>
+    <input type="text" placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <button class="button">Log In</button>
+  </div>
+</body>
+</html>
