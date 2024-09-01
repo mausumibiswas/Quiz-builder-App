@@ -19,7 +19,6 @@ body {
 .question-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -31,25 +30,13 @@ body {
     cursor: pointer;
 }
 
-.question-header #currentQuestion {
-    position: relative;
-}
-
-.question-header .remove-question {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
 }
 
-input[type="text"], .option-type {
+input[type="text"], .option-type, .timer {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -74,13 +61,17 @@ input[type="text"], .option-type {
     cursor: pointer;
 }
 
-button[type="submit"], button#cancelButton {
+button#addOption, button[type="submit"] {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+button#addOption {
+    background-color: #f0f0f0;
 }
 
 button[type="submit"] {
@@ -90,4 +81,7 @@ button[type="submit"] {
 
 button#cancelButton {
     background-color: #ccc;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
 }

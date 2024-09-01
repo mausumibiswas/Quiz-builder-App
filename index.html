@@ -11,7 +11,7 @@
         <form id="quizForm">
             <div class="question-header">
                 <button type="button" id="prevQuestion">1</button>
-                <button type="button" id="currentQuestion">2 <span class="remove-question">✖</span></button>
+                <button type="button" id="currentQuestion">2</button>
                 <button type="button" id="addQuestion">+</button>
             </div>
 
@@ -39,14 +39,19 @@
                     <input type="text" name="option2" placeholder="Text">
                     <button type="button" class="delete-option">🗑️</button>
                 </div>
-                <div class="option-group">
-                    <input type="text" name="option3" placeholder="Text">
-                    <button type="button" class="delete-option">🗑️</button>
-                </div>
-                <div class="option-group">
-                    <input type="text" name="option4" placeholder="Text">
-                    <button type="button" class="delete-option">🗑️</button>
-                </div>
+            </div>
+            <button type="button" id="addOption">Add option</button>
+
+            <div class="timer">
+                <label>Timer</label>
+                <input type="radio" id="timerOff" name="timer" value="off" checked>
+                <label for="timerOff">OFF</label>
+
+                <input type="radio" id="timer5Sec" name="timer" value="5">
+                <label for="timer5Sec">5 sec</label>
+
+                <input type="radio" id="timer10Sec" name="timer" value="10">
+                <label for="timer10Sec">10 sec</label>
             </div>
 
             <div class="button-group">

@@ -2,10 +2,25 @@ document.getElementById('cancelButton').addEventListener('click', function() {
     document.getElementById('quizForm').reset();
 });
 
-document.querySelectorAll('.delete-option').forEach(button => {
-    button.addEventListener('click', function() {
-        this.parentElement.remove();
-    });
+document.getElementById('addOption').addEventListener('click', function() {
+    const optionsContainer = document.getElementById('optionsContainer');
+    const optionCount = optionsContainer.querySelectorAll('.option-group').length + 1;
+    
+    if (optionCount <= 5) {
+        const newOption = document.createElement('div');
+        newOption.className = 'option-group';
+        newOption.innerHTML = `
+            <input type="text" name="option${optionCount}" placeholder="Text">
+            <button type="button" class="delete-option">🗑️</button>
+        `;
+        optionsContainer.appendChild(newOption);
+
+        newOption.querySelector('.delete-option').addEventListener('click', function() {
+            newOption.remove();
+        });
+    } else {
+        alert('Maximum 5 options allowed.');
+    }
 });
 
 document.getElementById('quizForm').addEventListener('submit', function(event) {
@@ -13,6 +28,7 @@ document.getElementById('quizForm').addEventListener('submit', function(event) {
 
     const pollQuestion = document.getElementById('pollQuestion').value;
     const optionType = document.querySelector('input[name="optionType"]:checked').value;
+    const timer = document.querySelector('input[name="timer"]:checked').value;
 
     const options = Array.from(document.querySelectorAll('#optionsContainer .option-group input[type="text"]'))
         .map(input => input.value);
@@ -20,7 +36,8 @@ document.getElementById('quizForm').addEventListener('submit', function(event) {
     const quizData = {
         pollQuestion,
         optionType,
-        options
+        options,
+        timer
     };
 
     fetch('/api/create-poll-quiz', {
