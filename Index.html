@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Analysis</title>
+    <link rel="stylesheet" href="styles.css" href="styles1.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>QUIZZIE</h1>
+        <ul>
+            <li><a href="#" id="dashboard-link">Dashboard</a></li>
+            <li><a href="#" id="analytics-link" class="active">Analytics</a></li>
+            <li><a href="#" id="create-quiz-link">Create Quiz</a></li>
+        </ul>
+        <button id="logout-button">LOGOUT</button>
+    </div>
+
+    <div class="content">
+        <h2>Quiz Analysis</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Quiz Name</th>
+                    <th>Created on</th>
+                    <th>Impression</th>
+                    <th>Actions</th>
+                    <th>Analysis</th>
+                </tr>
+            </thead>
+            <tbody id="quiz-table-body">
+                <!-- Dynamic Content will be inserted here -->
+                <tbody>
+                    <tr>
+                        <td>8</td>
+                        <td>Quiz 8</td>
+                        <td>17 Sep, 2023</td>
+                        <td>1.3K</td>
+                        <td>
+                            <button onclick="showDeleteDialog()">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+    
+<div id="deleteDialog" class="dialog">
+    <div class="dialog-content">
+        <p>Are you confirm you want to delete?</p>
+        <button onclick="confirmDelete()">Confirm Delete</button>
+        <button onclick="cancelDelete()">Cancel</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
